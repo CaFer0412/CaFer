@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio</title>
+<!-- Framework externo: Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+ <!-- Menú desplegable con franja amarilla pastel -->
+<div class="barra-navegacion">
+  <nav class="menu">
+    <ul>
+      <li><a href="#">Menú</a>
+        <ul class="submenu">
+          <li><a href="Inicio.html">Inicio</a></li>
+          <li><a href="portafolio.html">Portafolio</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+  <header>
+    <h1 class="titulo-principal">Mi Galería Creativa</h1>
+  </header>
+
+  <main>
+    <section>
+      <div class="contenedor-carrusel">
+        <button class="flecha izquierda" onclick="moverCarrusel(-1)">&#10094;</button>
+
+        <div class="carrusel-imagenes" id="carrusel">
+          <img src="Carpeta Raiz/1.jpg" alt="Imagen 1">
+          <img src="Carpeta Raiz/2.jpg" alt="Imagen 2">
+          <img src="Carpeta Raiz/3.jpg" alt="Imagen 3">
+          <img src="Carpeta Raiz/4.jpg" alt="Imagen 4">
+          <img src="Carpeta Raiz/5.jpg" alt="Imagen 5">
+        </div>
+
+        <button class="flecha derecha" onclick="moverCarrusel(1)">&#10095;</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Script para el carrusel -->
+  <script>
+    let index = 0;
+
+    function moverCarrusel(direccion) {
+      const carrusel = document.getElementById('carrusel');
+      const imagenes = carrusel.querySelectorAll('img');
+      const total = imagenes.length;
+
+      index += direccion;
+
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+
+      carrusel.style.transform = `translateX(-${index * 100}%)`;
+    }
+  </script>
+</body>
+</html>
